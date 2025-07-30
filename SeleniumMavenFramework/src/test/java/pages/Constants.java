@@ -6,5 +6,6 @@ public class Constants {
 	public static final String tephone="12345";
 	public static final String password="pass@123";
 	public static final String confirmPass="pass@123";
+	public static final String pass="pass@123";
 
 }
