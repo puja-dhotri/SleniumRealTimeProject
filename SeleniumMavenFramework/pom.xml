@@ -25,13 +25,18 @@
   <scope>test</scope>
 </dependency>
 
-
+  <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <version>2.27.0</version>
+    </dependency>
 
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-simple</artifactId>
-    <version>2.0.13</version>
+    <version>2.0.9</version> <!-- or the latest -->
 </dependency>
+
 
 
         <!-- WebDriverManager -->

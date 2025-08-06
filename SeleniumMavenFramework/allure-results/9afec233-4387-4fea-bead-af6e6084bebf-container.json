@@ -1,0 +1,1 @@
+{"uuid":"9afec233-4387-4fea-bead-af6e6084bebf","name":"tests.ComponentTest.setUp","children":["28646f98-77a3-4c51-b845-03ffd9e5f6a7"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1754479690155,"stop":1754479694081}],"afters":[],"start":1754479690153,"stop":1754479694088}
