@@ -11,6 +11,7 @@ public class DriverFactory {
         WebDriverManager.chromedriver().setup();
         driver.set(new ChromeDriver());
         getDriver().manage().window().maximize();
+        getDriver().get("https://tutorialsninja.com/demo/");
     }
 
     public static WebDriver getDriver() {
