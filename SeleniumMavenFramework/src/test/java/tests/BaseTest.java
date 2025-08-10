@@ -2,8 +2,6 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
 import utils.DriverFactory;
 
 public class BaseTest {
@@ -13,11 +11,13 @@ WebDriver driver;
         DriverFactory.initDriver();
         
     }
-
-    
-    
+   
 //    @AfterMethod
 //    public void tearDown() {
 //        DriverFactory.quit();
 //    }
+
+    public WebDriver getDriver() {
+        return DriverFactory.getDriver(); // directly from ThreadLocal
+    }
 }

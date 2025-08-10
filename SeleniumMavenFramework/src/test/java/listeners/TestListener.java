@@ -1,61 +1,26 @@
 package listeners;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-import utils.DriverFactory;
-
 public class TestListener implements ITestListener {
-    private static ExtentReports extent;
-    private static ExtentTest test;
 
-    @Override
-    public void onStart(ITestContext context) {
-    	ExtentSparkReporter reporter = new ExtentSparkReporter("test-output/testng.xml");
-    	extent = new ExtentReports();
-    	extent.attachReporter(reporter);
-    	extent = new ExtentReports();
-        extent.attachReporter(reporter);
-    }
-
-    @Override
-    public void onTestStart(ITestResult result) {
-        test = extent.createTest(result.getMethod().getMethodName());
-    }
-
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        test.pass("Test Passed");
+    @Attachment(value = "Screenshot", type = "image/png")
+    public byte[] saveScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        test.fail(result.getThrowable());
-        try {
-            File src = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
-            String path = "test-output/screenshots/" + result.getMethod().getMethodName() + ".png";
-            File dest = new File(path);
-            dest.getParentFile().mkdirs();
-            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            test.addScreenCaptureFromPath(path);
-        } catch (Exception e) {
-            e.printStackTrace();
+        Object testClass = result.getInstance();
+        WebDriver driver = ((tests.BaseTest) testClass).getDriver();
+        if (driver != null) {
+            saveScreenshot(driver);
         }
-    }
-
-    @Override
-    public void onFinish(ITestContext context) {
-        extent.flush();
     }
 }

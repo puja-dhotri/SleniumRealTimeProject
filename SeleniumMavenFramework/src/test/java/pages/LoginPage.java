@@ -34,7 +34,10 @@ public class LoginPage {
     }
     
 	public void myAccount() {
-	myAccount.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement myAccount = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		    By.xpath("//span[text()='My Account']")));
+		myAccount.click();
 	}
 	public void clickLoginOnHeader() {
 		LoginOnHeader.click();

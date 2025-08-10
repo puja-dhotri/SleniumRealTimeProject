@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"This test verifies the login functionality","1935","LoginTestP","Test Suite","Sun Aug 10 16:01:03 IST 2025","passed","Sun Aug 10 16:01:05 IST 2025","tests.LoginTest","Login Tests","tests.LoginTest","LoginTestP"
