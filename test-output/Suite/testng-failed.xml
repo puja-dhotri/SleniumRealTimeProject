@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="methods" name="AllTestsFromTestsPackage(failed)">
+    <classes>
+      <class name="tests.ComponentTest">
+        <methods>
+          <include name="verifyComponents"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- tests.ComponentTest -->
+      <class name="tests.RegisterTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="registerTest"/>
+        </methods>
+      </class> <!-- tests.RegisterTest -->
+    </classes>
+  </test> <!-- AllTestsFromTestsPackage(failed) -->
+</suite> <!-- Failed suite [Suite] -->
